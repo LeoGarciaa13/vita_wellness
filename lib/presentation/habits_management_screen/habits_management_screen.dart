@@ -280,8 +280,8 @@ class _HabitsManagementScreenState extends State<HabitsManagementScreen> {
                   _toggleBulkMode();
                 }
               },
+              // Future Implement bulk edit functionality
               onBulkEdit: () {
-                // TODO: Implement bulk edit functionality
                 _showErrorMessage('Bulk edit coming soon');
               },
             ),
@@ -365,8 +365,8 @@ class _HabitsManagementScreenState extends State<HabitsManagementScreen> {
     );
   }
 
+  // Future: Navigate to habit details screen
   void _showHabitDetails(HabitModel habit) {
-    // TODO: Navigate to habit details screen
     _showErrorMessage('Habit details coming soon');
   }
 

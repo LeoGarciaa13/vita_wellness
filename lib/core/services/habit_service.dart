@@ -96,14 +96,14 @@ class HabitService {
     }
 
     final habit = habits[habitIndex];
-    final today = DateTime.now();
-    final todayStart = DateTime(today.year, today.month, today.day);
+    final now = DateTime.now();
+    final todayStart = DateTime(now.year, now.month, now.day);
 
     final existingCompletion = habit.completions.firstWhere(
       (completion) =>
-          completion.date.year == today.year &&
-          completion.date.month == today.month &&
-          completion.date.day == today.day,
+          completion.date.year == todayStart.year &&
+          completion.date.month == todayStart.month &&
+          completion.date.day == todayStart.day,
       orElse: () => HabitCompletion(
         id: '',
         habitId: '',
@@ -153,7 +153,6 @@ class HabitService {
 
   Future<Map<String, dynamic>> getHabitStats() async {
     final habits = await getAllHabits();
-    final today = DateTime.now();
     final todayHabits = await getTodaysHabits();
 
     final completedToday = todayHabits.where((h) => h.isCompletedToday).length;

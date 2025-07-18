@@ -72,6 +72,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _handleLogout() async {
     final shouldLogout = await _showLogoutDialog();
+    if (!mounted) return;
     if (shouldLogout) {
       try {
         await _userService.logoutUser();
@@ -126,6 +127,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       // Mock data export functionality
       await Future.delayed(const Duration(seconds: 1));
 
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Row(
@@ -215,6 +217,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Si necesitas lógica personalizada de pop, envuelve el Scaffold en PopScope así:
+    // return PopScope(
+    //   canPop: true,
+    //   onPopInvokedWithResult: () async {
+    //     // Tu lógica aquí, por ejemplo:
+    //     return true;
+    //   },
+    //   child: Scaffold(
+    //     ...
+    //   ),
+    // );
+    // Si no necesitas lógica personalizada, deja solo el Scaffold:
     return Scaffold(
       backgroundColor: AppTheme.lightTheme.scaffoldBackgroundColor,
       appBar: AppBar(

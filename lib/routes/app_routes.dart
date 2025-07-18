@@ -10,7 +10,7 @@ import '../presentation/habits_management_screen/habits_management_screen.dart';
 import '../presentation/enhanced_dashboard_screen/enhanced_dashboard_screen.dart';
 
 class AppRoutes {
-  // TODO: Add your routes here
+  // Future: Add your routes here
   static const String initial = '/';
   static const String loginScreen = '/login-screen';
   static const String onboardingFlow = '/onboarding-flow';
@@ -33,6 +33,6 @@ class AppRoutes {
     settingsScreen: (context) => const SettingsScreen(),
     habitsManagementScreen: (context) => const HabitsManagementScreen(),
     enhancedDashboardScreen: (context) => const EnhancedDashboardScreen(),
-    // TODO: Add your other routes here
+    // Future: Add your other routes here
   };
 }

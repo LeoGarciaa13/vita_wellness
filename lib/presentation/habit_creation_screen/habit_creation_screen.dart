@@ -200,6 +200,7 @@ class _HabitCreationScreenState extends State<HabitCreationScreen>
 
     // Simulate saving habit
     Future.delayed(const Duration(milliseconds: 500), () {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Row(
@@ -219,6 +220,7 @@ class _HabitCreationScreenState extends State<HabitCreationScreen>
       );
 
       Future.delayed(const Duration(seconds: 1), () {
+        if (!mounted) return;
         Navigator.pushReplacementNamed(context, '/habit-dashboard');
       });
     });
